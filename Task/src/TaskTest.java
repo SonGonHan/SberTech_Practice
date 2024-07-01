@@ -3,10 +3,17 @@ import org.junit.jupiter.api.Test;
 
 class TaskTest {
     @Test
-    void GetNums() {
-        final int COUNT = 14, NUM = 7;
-        String expected = "7 14 21 28 35 42 49 56 63 70 77 84 91 98";
-        String actual = Task.GetNums(COUNT, NUM);
+    void GetMin() {
+        int[] array = {5, 2, 9, 1, 3};
+        int expected = 1;
+        int actual = Task.findMinValueInArray(array);
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    void GetMax() {
+        int[] array = {5, 2, 9, 1, 3};
+        int expected = 9;
+        int actual = Task.findMaxValueInArray(array);
         Assert.assertEquals(expected, actual);
     }
 }
