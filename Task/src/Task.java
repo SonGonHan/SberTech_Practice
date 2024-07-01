@@ -1,26 +1,37 @@
 public class Task {
 
-    public static String findPrimeNumbers(final int LOWER_BOUND, final int UPPER_BOUND) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = LOWER_BOUND; i <= UPPER_BOUND; i++) {
-            if(isPrime(i)) {
-                sb.append(i).append(" ");
+    public static String makeStarGrid(final int HEIGHT, final int WIDTH) {
+        StringBuilder starGrid = new StringBuilder();
+        for (int i = 0; i < HEIGHT; i++) {
+            startLine(starGrid);
+            for (int j = 1; j < WIDTH; j++) {   
+                appendStarsInLine(starGrid);
+            }
+            if (nextLineIsNeed(i, HEIGHT)) {
+                goToNextLine(starGrid);
             }
         }
-        return sb.toString().strip();
+        return starGrid.toString();
     }
 
-    private static boolean isPrime(int x) {
-        for (int i = 2; i <= Math.sqrt(x); i++) {
-            if(x % i == 0) {
-                return false;
-            }
-        }
-        return true;
+    private static void startLine(StringBuilder starGrid) {
+        starGrid.append('*');
+    }
+
+    private static void appendStarsInLine(StringBuilder starGrid) {
+        starGrid.append(" *");
+    }
+
+    private static boolean nextLineIsNeed(int i, int HEIGHT) {
+        return i < HEIGHT - 1;
+    }
+
+    private static void goToNextLine(StringBuilder starGrid) {
+        starGrid.append("\n");
     }
 
     public static void main(String[] args) {
-        final int LOWER_BOUND = 2, UPPER_BOUND = 100;
-        System.out.println("Простые числа: " + findPrimeNumbers(LOWER_BOUND, UPPER_BOUND));
+        final int HEIGHT = 3, WIDTH = 5;
+        System.out.println(makeStarGrid(HEIGHT, WIDTH));
     }
 }
