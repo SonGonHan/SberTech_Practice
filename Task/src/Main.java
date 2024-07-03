@@ -1,29 +1,17 @@
 public class Main {
-    public static void main(String[] args) throws Exception {
-        int N = 3, M = 2;
-        Matrix matrix1 = new Matrix(N, M);
-        Matrix matrix2 = new Matrix(N, M);
-        Matrix matrix3 = new Matrix(M, N);
-        for (int i = 0; i < N; ++i){
-            for (int j = 0; j < M; ++j) {
-                matrix1.setValue(i, j, (int)(Math.random() * 10));
-                matrix2.setValue(i, j, (int)(Math.random() * 10));
-                matrix3.setValue(j, i, (int)(Math.random() * 10));
-            }
-        }
-        System.out.println(matrix1);
-        System.out.println(matrix2);
-        System.out.println(matrix3);
-
-        matrix2.multiplicationWithNumber(-1);
-        System.out.println(matrix2);
-
-        matrix1.addiction(matrix2);
-        System.out.println(matrix1);
-
-        matrix1.multiplication(matrix3);
-        System.out.println(matrix1);
-
-        matrix1.multiplication(matrix2);
+    public static void main(String[] args) {
+        Author author = new Author("Акумов", "akumov@mail.ru", Gender.MALE);
+        Book book = new Book("Лунный грааль", author, 2003);
+        System.out.println(book);
+        Author author2 = new Author("Бимбо", "bimbolove@mail.ru", Gender.FEMALE);
+        Book book2 = new Book("Основы серфинга", author2, 2024);
+        System.out.println(book2);
+        author.setName(author2.getName());
+        author.setMail(author2.getMail());
+        author.setGender(author2.getGender());
+        book.setTitle(book2.getTitle());
+        book.setAuthor(book2.getAuthor());
+        book.setReleaseDate(book2.getReleaseDate());
+        System.out.println(book);
     }
 }
