@@ -1,22 +1,14 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class TBTest {
 
     @Test
-    void testIncrease() {
-        Change change = Mockito.mock(Change.class);
-        new Number(change).increaseByNine(0.0);
-        Mockito.verify(change, Mockito.times(3)).increaseByThree(Mockito.anyDouble());
-
-    }
-
-
-    @Test
-    void testDecrease() {
-        Change change = Mockito.mock(Change.class);
-        new Number(change).decreaseBySix(6.0);
-        Mockito.verify(change, Mockito.times(2)).decreaseByThree(Mockito.anyDouble());
+    void testDivide() {
+        Number number = Mockito.mock(Number.class);
+        Mockito.doCallRealMethod().when(number).divideNums(Mockito.anyDouble(), Mockito.anyDouble());
+        Assertions.assertThrows(ArithmeticException.class,() -> number.divideNums(4.0,  0.0));
     }
 
 }
