@@ -2,13 +2,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.lang.reflect.Method;
+
 public class TBTest {
 
     @Test
-    void testDivide() {
+    void testThree() throws Exception {
         Number number = Mockito.mock(Number.class);
-        Mockito.doCallRealMethod().when(number).divideNums(Mockito.anyDouble(), Mockito.anyDouble());
-        Assertions.assertThrows(ArithmeticException.class,() -> number.divideNums(4.0,  0.0));
+        Method method = Number.class.getDeclaredMethod("getThree");
+        method.setAccessible(true);
+        int result = (int) method.invoke(number);
+        Assertions.assertEquals(3, result);
     }
 
 }
