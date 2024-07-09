@@ -30,9 +30,5 @@ hs_err_pid*
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.idea/
 .idea_modules/
-*.iml
-*.ipr
-*.iws
 *.xml
