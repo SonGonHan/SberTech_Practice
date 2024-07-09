@@ -1,4 +1,4 @@
-import Exceptions.*;
+import exceptions.*;
 
 import java.util.HashSet;
 import java.util.Arrays;
@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class BankOnline {
 
-    private final int LIMIT = 50000;
-    private static Set<String> blockedCards = new HashSet<>(Arrays.asList("1111111111111111", "2222222222222222", "3333333333333333"));
+    private static final int LIMIT = 50000;
+    private static final Set<String> blockedCards = new HashSet<>(Arrays.asList("1111111111111111", "2222222222222222", "3333333333333333"));
     private static Map<String, Double> cards;
 
     public void send(String cardNumber, Double money) throws BankOnlineException {
