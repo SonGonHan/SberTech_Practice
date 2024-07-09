@@ -38,3 +38,6 @@ out/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/misc.xml
+.idea/vcs.xml
+.idea/workspace.xml
