@@ -4,8 +4,11 @@ import HelpToFigures.*;
 
 public class Triangle extends Figure implements Drawable{
 
-    private double sideAB, sideAC, sideBC;
-    private double angleA, angleABToAxisX;
+    private double sideAB;
+    private double sideAC;
+    private double sideBC;
+    private double angleA;
+    private double angleABToAxisX;
 
     public Triangle(Point pointA, double sideAB, double sideAC, double sideBC, double angleA, double angleABToAxisX) {
         super(pointA);
