@@ -1,16 +1,25 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.w3c.dom.ls.LSOutput;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TBTest {
 
     @Test
     public void test() {
-        Integer[] Nums1 = {1, 2, 3, 4, 5};
-        Integer[] Nums2 = {1, 4, 3, 2, 5};
-        GenericMethod.swap(Arrays.asList(Nums1), 1, 3);
-        Assertions.assertArrayEquals(Nums1, Nums2);
+        List<Sounding> animals = new ArrayList<>();
+        animals.add(new Cat());
+        animals.add(new Hamster());
+        animals.add(new Pig());
+        animals.add(new Sounding() {
+            @Override
+            public void sound() {
+                System.out.println("quack");
+            }
+        });
+        animals.add(()-> System.out.println("piu"));
+        animals.add(new Pig()::sound);
+        animals.forEach(Sounding::sound);
     }
 }
