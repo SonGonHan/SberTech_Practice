@@ -1,16 +1,31 @@
+import exceptions.ValidationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
+import serviceWork.AuthorizationWork;
 
 public class TBTest {
 
     @Test
-    public void test() {
-        Integer[] Nums1 = {1, 2, 3, 4, 5};
-        Integer[] Nums2 = {1, 4, 3, 2, 5};
-        GenericMethod.swap(Arrays.asList(Nums1), 1, 3);
-        Assertions.assertArrayEquals(Nums1, Nums2);
+    public void goodTest() {
+        System.out.println("goodTest");
+        AuthorizationWork aw = new AuthorizationWork("SonGonHan");
+        Assertions.assertDoesNotThrow(() -> {
+            new mainWork().serviceWork(aw);
+        });
+    }
+
+    @Test
+    public void badTest1() {
+        System.out.println("badTest1");
+        AuthorizationWork aw = new AuthorizationWork("12345");
+        Assertions.assertThrows(ValidationException.class,
+                () -> new mainWork().serviceWork(aw));
+    }
+
+    @Test
+    public void badTest2() {
+        System.out.println("badTest2");
+        AuthorizationWork aw = new AuthorizationWork("ByaKuya");
+        Assertions.assertThrows(ValidationException.class, () -> new mainWork().serviceWork(aw));
     }
 }
