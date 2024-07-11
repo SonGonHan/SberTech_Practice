@@ -1,3 +1,5 @@
+package classes;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DataConteiner {
-    private Integer age;
     private String name;
-    private String surname;
+    private Integer age;
 }
