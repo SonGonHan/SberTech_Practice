@@ -1,3 +1,5 @@
+package animalSounds;
+
 public class Hamster implements Sounding {
 
     @Override

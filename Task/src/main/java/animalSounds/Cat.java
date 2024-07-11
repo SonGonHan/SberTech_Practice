@@ -1,3 +1,5 @@
+package animalSounds;
+
 public class Cat implements Sounding {
 
     @Override
