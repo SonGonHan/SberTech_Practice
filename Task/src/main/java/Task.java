@@ -1,18 +1,23 @@
-import java.util.OptionalDouble;
-import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class Task {
 
-    public static void v(int bound) {
-        System.out.println(IntStream
-                .generate(()
-                        -> (int) (Math.random() * bound))
-                .limit(20)
-                .filter(x -> x > 9 && x < 100)
-                .sorted()
-                .average()
-                .orElse(0)
-        );
+    public void solution (Stream<String> streamOfStrings) {
+        Stream<StreamContainer> streamOfStreamContainers = converterToStreamOfStreamContainers(streamOfStrings);
+        printStreamOfStreamContainers(streamOfStreamContainers);
+
+    }
+
+    private void printStreamOfStreamContainers(Stream<StreamContainer> streamOfStreamContainers) {
+        streamOfStreamContainers.forEach(System.out::println);
+    }
+
+    private Stream<StreamContainer> converterToStreamOfStreamContainers(Stream<String> streamOfStrings) {
+        return streamOfStrings.map(string -> new StreamContainer(string, (long) (Math.random() * Long.MAX_VALUE)));
+    }
+
+    private Map<Long, String> converterToMap(Stream<StreamContainer> streamOfStreamContainers) {
+        
     }
 }
