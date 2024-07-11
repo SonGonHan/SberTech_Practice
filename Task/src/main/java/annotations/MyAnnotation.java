@@ -4,9 +4,9 @@ import java.lang.annotation.*;
 
 @Inherited
 @Target(ElementType.TYPE)
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface MyAnnotation {
 
-    String what() default "";
+    int birthday();
 
 }

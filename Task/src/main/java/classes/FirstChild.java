@@ -1,18 +1,24 @@
 package classes;
 
 import annotations.TaskAnnotation;
-import lombok.NonNull;
+import lombok.*;
 
+@Setter
+@Getter
 public class FirstChild extends Parent {
 
-    @TaskAnnotation(hours = 1, priority = 2, description = "ПОЛУЧАЕМ ИМЯ")
-    public String getName (@NonNull DataConteiner dc){
-        return dc.getName();
+    public FirstChild(DataConteiner dc){
+        super(dc);
     }
 
-    @TaskAnnotation(hours = 2, priority = 1, description = "ПОЛУЧАЕМ ВОЗРАСТ")
-    public Integer getAge (@NonNull DataConteiner dc){
-        return dc.getAge();
+    @TaskAnnotation(hours = 1, priority = 2, description = "ИЗМЕНЯЕМ ИМЯ")
+    public void setName (){
+        info.setName("Вова");
+    }
+
+    @TaskAnnotation(hours = 2, priority = 1, description = "ИЗМЕНЯЕМ ВОЗРАСТ")
+    public void setAge (){
+        info.setAge(3);
     }
 
 }
