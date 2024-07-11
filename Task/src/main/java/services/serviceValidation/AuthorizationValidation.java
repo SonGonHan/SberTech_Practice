@@ -1,11 +1,11 @@
-package services;
+package services.serviceValidation;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class AuthorizationService implements Service {
+public class AuthorizationValidation implements Validation<String> {
 
-    private static final List<String> logs = Arrays.asList(
+    private static final List<String> LOGINS = Arrays.asList(
             "SonGonHan",
             "Tomiks",
             "Brokoda",
@@ -20,6 +20,6 @@ public class AuthorizationService implements Service {
 
     @Override
     public boolean responseValidation(String login) {
-        return logs.contains(login);
+        return LOGINS.contains(login);
     }
 }
